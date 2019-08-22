@@ -1,0 +1,53 @@
+stac_version: 0.8.0
+stac_extensions: ['dtr', 'label']
+id:
+type: Feature
+geometry:
+bbox:
+properties:
+  dtr:start_datetime:
+  dtr:end_datetime:
+  license:
+  providers:
+  title:
+  created:
+  updated:
+  label:property: ['attribute_name']
+  label:type: vector
+  label:classes:
+    # One per attribute
+    - {name: attribute_name,
+    classes: ['1', '2', '3', '4']}
+  label:description:
+  label:task: ['segmentation']
+  label:method: ['manual']
+  label:overview:
+    # One per attribute
+    - {property_key: attribute_name,
+    counts:
+      # One per possible values
+      - {name: 1,
+      count: 2422}
+      - {name: 2,
+      count: 915}
+      - {name: 3,
+      count: 271}
+      - {name: 4,
+      count: 39504}
+    }
+links:
+  - {href: URL,
+  rel: self}
+  - {href: Collection_URL,
+  rel: collection}
+assets:
+  - {thumbnail:
+       {href: link to the thumbnail,
+        type: thumbnail}
+  }
+  - {XX_labels:
+       {href: url.geojson,
+        title: XX_labels,
+        type: application/geo+json}
+  }
+collection: collection_ID

@@ -1,0 +1,45 @@
+stac_version: 0.8.0
+stac_extensions: ['eo']
+id:
+type: Feature
+geometry:
+bbox:
+properties:
+  datetime:
+  license:
+  providers:
+  title:
+  created:
+  updated:
+  eo:gsd:
+  eo:platform:
+  eo:instrument:
+  eo:bands:
+    # One per channel, ex:
+    - {name: Red,
+    common_name: Red,
+    description: Pansharpened red band of the XX satellite,
+    gsd: 0.4,
+    center_wavelength: 0.66}
+  eo:constellation:
+  eo:epsg:
+  eo:cloud_cover:
+  eo:off_nadir:
+  eo:azimuth:
+  eo:sun_azimuth:
+  eo:sun_elevation:
+assets:
+  - {thumbnail:
+       {href: link to the thumbnail,
+        type: thumbnail}
+  }
+  - {file:
+       {href: link to tif file,
+       type: image/vnd.stac.geotiff}
+  }
+links:
+  - {href: URL,
+  rel: self}
+  - {href: collection_URL,
+  rel: collection}
+collection: collection_ID
