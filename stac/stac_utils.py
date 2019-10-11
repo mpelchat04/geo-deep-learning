@@ -1,4 +1,4 @@
-from ..utils import read_parameters
+from utils import read_parameters
 from geojson import Polygon
 import json
 import os
@@ -30,15 +30,17 @@ def geom_and_bbox_from_tif(img):
 if __name__ == '__main__':
     print('Start')
     # Script parameters
-    params = read_parameters('/home/maturgeo/.PyCharmCE2019.1/config/scratches/stac_eo_item.yaml')
+    params = read_parameters('D:/Travail/stac/stac_items/eo_item.yaml')
     json_schema = ''
-    working_folder = '/wspace/disk01/dataset_kingston_rgb/stac_tests'
-    img = os.path.join(working_folder, '2_RGB__0_0.tif')
+    working_folder = 'D:/Travail/stac/stac_items'
+    img_name = '2_RGB__0_0.tif'
+    img = os.path.join(working_folder, img_name)
 
     pol, bbox = geom_and_bbox_from_tif(img)
 
     params['geometry'] = pol
     params['bbox'] = bbox
+    params['id'] = img_name
     # Convert datetime objects to string, for json.
     params['properties']['datetime'] = str(params['properties']['datetime'])
     params['properties']['created'] = str(params['properties']['created'])
